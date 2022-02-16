@@ -25,15 +25,15 @@ export function calcPolynomial (x: [number, number], coeffs: [number, number][])
     return result;
 }
 
-function sum (a: [number, number], b: [number, number]): [number, number] {
+export function sum (a: [number, number], b: [number, number]): [number, number] {
     return [a[0] + b[0], a[1] + b[1]];
 }
 
-function mult (a: [number, number], b: [number, number]): [number, number] {
+export function mult (a: [number, number], b: [number, number]): [number, number] {
     return [a[0] * b[0], a[0] * b[1] + b[0] * a[1]];
 }
 
-function pow (base: [number, number], exp: number): [number, number] {
+export function pow (base: [number, number], exp: number): [number, number] {
     let result = base;
 
     for (let i = 1; i < exp; i++) {
