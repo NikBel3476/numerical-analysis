@@ -7,7 +7,11 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-const question = util.promisify(rl.question).bind(rl);
+function question(text: string): Promise<string> {
+    return new Promise(resolve =>
+        rl.question(text, resolve)
+    );
+}
 
 export async function read(message: string): Promise<string> {
     try {

@@ -1,7 +1,7 @@
 export function calcPolynomialHorner (x: [number, number], coeffs: [number, number][]): [number, number] {
-    let sum: [number, number] = [1, 1];
+    let sum: [number, number] = coeffs[0];
 
-    for (let i = 0; i < coeffs.length; i++) {
+    for (let i = 1; i < coeffs.length; i++) {
         sum = [
             sum[0] * x[0] + coeffs[i][0],
             i > 0 ? sum[1] * x[0] + sum[0] * coeffs[i - 1][1] : coeffs[0][1] // погрешность P0 = погрешность a0
@@ -12,7 +12,7 @@ export function calcPolynomialHorner (x: [number, number], coeffs: [number, numb
 }
 
 export function calcPolynomial (x: [number, number], coeffs: [number, number][]): [number, number] {
-    let result: [number, number] = [0, 0];
+    let result: [number, number] = [1, 1];
 
     for (let i = 0; i < coeffs.length; i++) {
         if (i > 0) {
